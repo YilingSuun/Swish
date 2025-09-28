@@ -1,7 +1,7 @@
 # Swish: Simple Working Implementation Shell
 
 ## Introduction
-This project is my first direct use of system calls, focusing on process creation, process management, I/O, and signal handling.  
+This program is my first direct use of system calls, focusing on process creation, process management, I/O, and signal handling.  
 While a single system call may seem simple, the real challenge of systems programming lies in combining system calls to build powerful tools.  
 Here, we build a simplified shell called **swish**.
 
@@ -10,8 +10,44 @@ Our shell `swish` is less feature-rich than `bash`, but will implement several k
 
 ---
 
+## Example Usage
+**Compile the shell**  
+```bash
+make
+```
+**Run the shell**  
+```bash
+./swish
+```
+**Interact with swish**
+- Run built-in commands:
+```bash
+@> pwd
+@> cd /tmp
+```
+- Run external programs:
+```bash
+@> ls -l > out.txt
+@> grep "foo" file.txt
+```
+
+- Redirect input/output:
+```bash
+@> ls -l > out.txt
+@> wc -l < input.txt
+```
+
+- Use background jobs:
+```bash
+@> ./long_running_program &
+@> jobs
+@> fg 0
+```
+
+---
+
 ## Features
-This project covers several important systems programming topics:
+This program covers several important systems programming topics:
 
 - String tokenization using `strtok()`  
 - Working directory management with `getcwd()` and `chdir()`  
@@ -103,27 +139,6 @@ wc -l < input.txt > output.txt
 
 ---
 
-
-## Example Usage
-```bash
-@> pwd
-/home/user
-
-@> cd /tmp
-
-@> ls -l > out.txt
-
-@> cat < out.txt | grep swish
-
-@> ./long_running_program &
-
-@> jobs
-0: long_running_program (background)
-
-@> fg 0
-```
-
----
 
 ## Notes
 - Some features (signals, job control) may behave differently outside the sanctioned Docker environment  
