@@ -1,52 +1,87 @@
 # Swish: Simple Working Implementation Shell
 
 ## Introduction
-This program is my first direct use of system calls, focusing on process creation, process management, I/O, and signal handling.  
+This progeam is a simplified shell called **swish**.
+This program is a use of system calls, focusing on process creation, process management, I/O, and signal handling.  
 While a single system call may seem simple, the real challenge of systems programming lies in combining system calls to build powerful tools.  
-Here, we build a simplified shell called **swish**.
 
 A shell is the program you interact with in a terminal. It starts processes, manages I/O, and handles user interaction.  
 Our shell `swish` is less feature-rich than `bash`, but will implement several key features.
 
 ---
 
-## Example Usage
-**Compile the shell**  
+## 1.⚙️ Installation
+Here's some code you can use on the command line:
+
+1. Clone the repository
+```bash
+git clone https://github.com/YilingSuun/Swish.git
+```  
+<br>
+2. Enter the directory
+
+```bash
+cd YilingSuun/Swish
+```  
+<br>
+3. Compile the shell
+
 ```bash
 make
-```
-**Run the shell**  
+```  
+<br>
+4. Run the shell
+
 ```bash
 ./swish
+```  
+<br>
+After running, the prompt will display as:
+
+```python
+@>
 ```
-**Interact with swish**
-- Run built-in commands:
+
+---
+
+## 2.🎮 Interact with swish
+**Some Examples**
+- In your command line, use:
 ```bash
+# Display the path of the current working directory
 @> pwd
+# Change the current working directory
 @> cd /tmp
 ```
 - Run external programs:
 ```bash
+# List the files and subdirectories in the current directory
 @> ls -l > out.txt
+# Search for lines in file.txt that contain the string "foo"
 @> grep "foo" file.txt
 ```
 
 - Redirect input/output:
 ```bash
+# Write the command output to the "out.txt" file instead of printing it to the terminal
 @> ls -l > out.txt
+# Pass the contents of input.txt as input to wc -l, count the number of lines in the file
 @> wc -l < input.txt
 ```
 
 - Use background jobs:
 ```bash
+# Run the "long_running_program" in the background without blocking the current shell
 @> ./long_running_program &
+# List all the running background tasks along with their corresponding numbers
 @> jobs
+#Bring the background task numbered 0 back to the foreground for execution
 @> fg 0
 ```
 
 ---
 
-## Features
+## 3.✨ Features
 This program covers several important systems programming topics:
 
 - String tokenization using `strtok()`  
@@ -59,7 +94,7 @@ This program covers several important systems programming topics:
 
 ---
 
-## Makefile Commands
+## 4.✨ Makefile Commands
 - `make` : Compile and produce `swish` executable  
 - `make clean` : Remove compiled files  
 - `make clean-tests` : Remove files created during tests  
@@ -69,7 +104,7 @@ This program covers several important systems programming topics:
 
 ---
 
-## Feature and Tasks
+## 5.✨ Feature and Tasks
 
 ### 1. String Tokenization
 - Implement `tokenize()` in `swish_funcs.c` using `strtok()`  
@@ -125,7 +160,7 @@ wc -l < input.txt > output.txt
 
 ---
 
-## Starter Code Overview
+## 6. Starter Code Overview
 | File              | Purpose                                   |
 |-------------------|-------------------------------------------|
 | **Makefile**      | Build system                              |
